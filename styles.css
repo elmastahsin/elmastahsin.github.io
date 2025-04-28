@@ -332,26 +332,26 @@ nav .container {
 
 /*=====  Son: Hero & About Bölümü  ======*/
 
-
 /*=============================================
 =            6. TIMELINE & EXPERİENCE        =
 =============================================*/
 
 .experience {
-    background-color: var(--background-color);
+    background-color: var(--section-bg);
+    padding: 80px 0;
 }
 
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 1000px;  /* Genişliği arttırıldı */
     margin: 0 auto;
-    padding-left: 180px; /* Önemli ölçüde arttırıldı */
+    padding-left: 200px; /* Soldan daha fazla boşluk */
 }
 
 .timeline:before {
     content: '';
     position: absolute;
-    left: 140px; /* Çizgiyi sağa kaydırdık */
+    left: 170px; /* Çizgiyi sağa kaydırdık */
     top: 0;
     bottom: 0;
     width: 3px;
@@ -368,12 +368,13 @@ nav .container {
 
 .timeline-date {
     position: absolute;
-    left: -160px; /* Tamamen sola konumlandırıldı */
-    width: 140px;
+    left: -180px; /* Tarih alanı genişletildi */
+    width: 160px;
     text-align: right;
     font-weight: 500;
     color: var(--primary-color);
     padding-right: 20px;
+    font-size: 14px; /* Font boyutu küçültüldü */
 }
 
 .timeline-content {
@@ -383,7 +384,7 @@ nav .container {
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
     position: relative;
-    margin-left: 20px;
+    margin-left: 30px;
     border-left: 4px solid var(--primary-color);
 }
 
@@ -409,29 +410,37 @@ nav .container {
     top: 35px;
 }
 
-.timeline-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 5px;
-    font-size: 1.2rem;
+/* Tablet ve mobil düzgün görüntü için: */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 60px;
+    }
+    
+    .timeline:before {
+        left: 30px;
+    }
+    
+    .timeline-date {
+        position: relative;
+        left: -40px;
+        width: auto;
+        text-align: left;
+        margin-bottom: 10px;
+        padding-left: 0;
+    }
+    
+    .timeline-content {
+        margin-left: 0;
+    }
+    
+    .timeline-content:before {
+        left: -42px;
+    }
+    
+    .timeline-content:after {
+        left: -28px;
+    }
 }
-
-.timeline-content h4 {
-    color: var(--light-text);
-    font-weight: normal;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-}
-
-.timeline-content ul {
-    margin-top: 15px;
-    padding-left: 20px;
-}
-
-.timeline-content li {
-    margin-bottom: 8px;
-}
-
-/*=====  Son: Timeline & Experience  ======*/
 
 
 /*=============================================
@@ -447,9 +456,9 @@ nav .container {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 .education-card {
@@ -625,10 +634,10 @@ nav .container {
 .projects-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    max-width: 900px;
+    gap: 25px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 .project-item {
@@ -751,7 +760,51 @@ footer {
 
 
 /*=============================================
-=            12. RESPONSIVE TASARIM           =
+=            12. ORTAK BÖLÜM STİLLERİ        =
+=============================================*/
+
+/* Tüm ana bölümler için ortak stil */
+section.experience,
+section.education,
+section.skills,
+section.projects {
+    padding: 80px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tüm bölüm başlıkları için ortak stil */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* Tüm bölüm konteynerleri için ortak genişlik */
+.timeline,
+.education-cards,
+.skills-container,
+.projects-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Deneyim bölümünde container genişliğini ayarla */
+.experience .container,
+.education .container,
+.skills .container,
+.projects .container {
+    max-width: 1100px;
+}
+
+/*=====  Son: Ortak Bölüm Stilleri  ======*/
+
+
+/*=============================================
+=            13. RESPONSIVE TASARIM           =
 =============================================*/
 
 /* Büyük Ekranlar (Laptop ve PC) */
@@ -879,6 +932,21 @@ footer {
     .education-info {
         text-align: center;
         width: 100%;
+    }
+    
+    /* Ortak bölüm stilleri responsive */
+    section.experience,
+    section.education,
+    section.skills,
+    section.projects {
+        padding: 60px 0;
+    }
+    
+    .timeline,
+    .education-cards,
+    .skills-container,
+    .projects-container {
+        padding: 0 15px;
     }
 }
 
