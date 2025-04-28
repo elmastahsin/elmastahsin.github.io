@@ -1,0 +1,918 @@
+/*=============================================
+=            1. TEMEL AYARLAR                =
+=============================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #1e88e5;
+    --secondary-color: #0d47a1;
+    --text-color: #333;
+    --light-text: #767676;
+    --background-color: #f9f9f9;
+    --section-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+    --container-width: 1140px;
+}
+
+/* Temel Reset ve Genel Stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Konteynır ve Bölüm Stilleri */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/*=====  Son: Temel Ayarlar  ======*/
+
+
+/*=============================================
+=            2. TİPOGRAFİ & BAŞLIKLAR        =
+=============================================*/
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Bölüm Başlıkları */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    padding-bottom: 15px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*=====  Son: Tipografi & Başlıklar  ======*/
+
+
+/*=============================================
+=            3. NAVİGASYON & DİL SEÇİMİ      =
+=============================================*/
+
+/* Navigasyon */
+nav {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Dil Seçici */
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.lang-btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.lang-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.lang-en, .lang-tr {
+    display: none;
+}
+
+/*=====  Son: Navigasyon & Dil Seçimi  ======*/
+
+
+/*=============================================
+=            4. BUTONLAR                     =
+=============================================*/
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+/*=====  Son: Butonlar  ======*/
+
+
+/*=============================================
+=            5. HERO & ABOUT BÖLÜMÜ          =
+=============================================*/
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0d47a1, #42a5f5);
+    color: white;
+    padding-top: 80px; /* Nav bar için boşluk */
+}
+
+.hero-about-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: stretch;
+    height: calc(100vh - 120px);
+}
+
+.hero-content {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Hero Profil Fotoğrafı */
+.hero-profile {
+    margin: 0 auto 30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* About İçeriği */
+.about-content {
+    flex: 2;
+    padding: 40px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-content .section-title {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.about-content .section-title:after {
+    background-color: white;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.about-text p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/*=====  Son: Hero & About Bölümü  ======*/
+
+
+/*=============================================
+=            6. TIMELINE & EXPERİENCE        =
+=============================================*/
+
+.experience {
+    background-color: var(--background-color);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 180px; /* Önemli ölçüde arttırıldı */
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 140px; /* Çizgiyi sağa kaydırdık */
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+    align-items: flex-start;
+}
+
+.timeline-date {
+    position: absolute;
+    left: -160px; /* Tamamen sola konumlandırıldı */
+    width: 140px;
+    text-align: right;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding-right: 20px;
+}
+
+.timeline-content {
+    flex: 1;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    margin-left: 20px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.timeline-content:before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    left: -48px;
+    top: 28px;
+}
+
+.timeline-content:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--primary-color);
+    left: -34px;
+    top: 35px;
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.timeline-content h4 {
+    color: var(--light-text);
+    font-weight: normal;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.timeline-content ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.timeline-content li {
+    margin-bottom: 8px;
+}
+
+/*=====  Son: Timeline & Experience  ======*/
+
+
+/*=============================================
+=            7. EĞİTİM BÖLÜMÜ                =
+=============================================*/
+
+.education {
+    background-color: var(--section-bg);
+    padding: 80px 0;
+}
+
+.education-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.education-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.education-info {
+    flex: 1;
+}
+
+.education-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.education-info h4 {
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.education-info p {
+    color: #777;
+    font-weight: 500;
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.school-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/*=====  Son: Eğitim Bölümü  ======*/
+
+/*=============================================
+=            8. YETENEKLER BÖLÜMÜ           =
+=============================================*/
+
+.skills {
+    background-color: var(--section-bg);
+    padding: 80px 0;
+}
+
+.skills .section-title {
+    margin-bottom: 50px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skill-category {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.skill-heading {
+    flex: 0 0 220px;
+    border-right: 2px solid #f0f0f0;
+    padding-right: 20px;
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 1;
+    align-items: center;
+}
+
+.skill-item {
+    background-color: #f5f9ff;
+    color: var(--primary-color);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(30, 136, 229, 0.15);
+}
+
+.skill-item:hover {
+    background-color: rgba(30, 136, 229, 0.1);
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+/* Responsive ayarları */
+@media (max-width: 768px) {
+    .skill-category {
+        flex-direction: column;
+    }
+    
+    .skill-heading {
+        flex: 0 0 auto;
+        border-right: none;
+        border-bottom: 2px solid #f0f0f0;
+        padding-right: 0;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}
+
+/*=====  Son: Yetenekler Bölümü  ======*/
+/*=====  Son: Yetenekler Bölümü  ======*/
+
+
+/*=============================================
+=            9. PROJELER BÖLÜMÜ              =
+=============================================*/
+
+.projects {
+    background-color: var(--section-bg);
+    padding: 80px 0;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.project-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-link {
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.project-link:hover {
+    color: var(--primary-color);
+}
+
+.project-link i {
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.project-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.project-item p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tech-tags .skill-item {
+    background: #e3f2fd;
+    color: #1976D2;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.tech-tags .skill-item:before {
+    content: none; /* Tech tags için liste işaretini kaldır */
+}
+
+.tech-tags .skill-item:hover {
+    transform: translateY(-2px); /* Yukarı doğru hareket */
+}
+
+/*=====  Son: Projeler Bölümü  ======*/
+
+
+/*=============================================
+=            10. İLETİŞİM BÖLÜMÜ             =
+=============================================*/
+
+.contact {
+    background-color: var(--section-bg);
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 15px);
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+/*=====  Son: İletişim Bölümü  ======*/
+
+
+/*=============================================
+=            11. FOOTER                      =
+=============================================*/
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/*=====  Son: Footer  ======*/
+
+
+/*=============================================
+=            12. RESPONSIVE TASARIM           =
+=============================================*/
+
+/* Büyük Ekranlar (Laptop ve PC) */
+@media (max-width: 992px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    .contact-item {
+        width: 100%;
+    }
+}
+
+/* Orta Ekranlar (Tablet) */
+@media (max-width: 768px) {
+    /* Navbar Responsive */
+    nav .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links li {
+        margin: 0 10px;
+        margin-bottom: 10px;
+    }
+    
+    /* Hero Responsive */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-about-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+    
+    .hero-content {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        margin-bottom: 20px;
+        height: auto;
+        padding: 30px 15px;
+    }
+    
+    .about-content {
+        padding: 20px 15px;
+    }
+    
+    /* Hero Butonlar Responsive */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    /* Timeline Responsive Düzeltmesi */
+    .timeline {
+        padding-left: 40px;
+    }
+    
+    .timeline:before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-date {
+        position: relative;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        margin-bottom: 5px;
+        color: var(--light-text);
+        font-size: 0.9rem;
+    }
+    
+    .timeline-content {
+        margin-left: 0;
+    }
+    
+    .timeline-content:before {
+        left: -32px;
+        top: -20px;
+    }
+    
+    .timeline-content:after {
+        transform: rotate(90deg);
+        left: -23px;
+        top: -14px;
+        width: 15px;
+    }
+    
+    /* Education Responsive */
+    .education-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    
+    .school-logo {
+        align-self: center;
+        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .education-info {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Küçük Ekranlar (Mobil) */
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 80px;
+        padding-bottom: 30px;
+    }
+    
+    .hero-profile {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .skill-category {
+        padding: 20px;
+    }
+    
+    /* Küçük ekranlarda daha kompakt görünüm için */
+    .nav-links li {
+        margin: 0 5px;
+    }
+    
+    .language-selector {
+        margin-left: 5px;
+    }
+}
+
+/*=====  Son: Responsive Tasarım  ======*/
