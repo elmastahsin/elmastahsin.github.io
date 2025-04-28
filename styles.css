@@ -341,79 +341,115 @@ nav .container {
     padding: 80px 0;
 }
 
+/* Tamamen yeni timeline yapısı */
 .timeline {
     position: relative;
-    max-width: 1000px;  /* Genişliği arttırıldı */
+    max-width: 900px;
     margin: 0 auto;
-    padding-left: 200px; /* Soldan daha fazla boşluk */
+    padding: 0 20px 0 120px; /* Sol padding azaltıldı */
 }
 
 .timeline:before {
     content: '';
     position: absolute;
-    left: 170px; /* Çizgiyi sağa kaydırdık */
+    left: 95px; /* Çizginin pozisyonu düzeltildi */
     top: 0;
     bottom: 0;
     width: 3px;
     background: var(--primary-color);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-item {
-    display: flex;
-    margin-bottom: 50px;
     position: relative;
+    margin-bottom: 70px;
+    display: flex; /* Flex yapıya geçildi */
     align-items: flex-start;
 }
 
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Tarih kutusu - tamamen yenilendi */
 .timeline-date {
     position: absolute;
-    left: -180px; /* Tarih alanı genişletildi */
-    width: 160px;
+    left: -100px; /* Tarih konumu düzeltildi */
+    top: 8px;
+    width: 80px; /* Genişlik azaltıldı */
     text-align: right;
-    font-weight: 500;
     color: var(--primary-color);
-    padding-right: 20px;
-    font-size: 14px; /* Font boyutu küçültüldü */
+    font-size: 14px;
+    font-weight: 500;
+    padding-right: 15px;
+    white-space: nowrap; /* Metin taşmayı önler */
 }
 
+/* İçerik kutusu */
 .timeline-content {
     flex: 1;
-    padding: 25px;
     background-color: white;
+    padding: 25px 30px;
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-    position: relative;
-    margin-left: 30px;
     border-left: 4px solid var(--primary-color);
+    position: relative;
 }
 
+/* Daire işaretçisi */
 .timeline-content:before {
     content: '';
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: white;
     border: 3px solid var(--primary-color);
     border-radius: 50%;
-    left: -48px;
-    top: 28px;
+    left: -32px;
+    top: 23px;
+    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
 }
 
+/* Yatay bağlantı çizgisi */
 .timeline-content:after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 2px;
+    width: 22px;
+    height: 3px;
     background-color: var(--primary-color);
-    left: -34px;
-    top: 35px;
+    left: -22px;
+    top: 31px;
 }
 
-/* Tablet ve mobil düzgün görüntü için: */
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.timeline-content h4 {
+    color: var(--light-text);
+    font-weight: normal;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* Listeleri düzenle */
+.timeline-content ul {
+    margin-top: 15px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.timeline-content li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Tablet ve mobil görünüm - tamamen güncellendi */
 @media (max-width: 768px) {
     .timeline {
-        padding-left: 60px;
+        padding-left: 50px;
     }
     
     .timeline:before {
@@ -423,22 +459,33 @@ nav .container {
     .timeline-date {
         position: relative;
         left: -40px;
+        top: 0;
         width: auto;
         text-align: left;
+        padding-bottom: 5px;
+        padding-left: 45px;
         margin-bottom: 10px;
-        padding-left: 0;
+        color: var(--light-text);
     }
     
-    .timeline-content {
-        margin-left: 0;
+    .timeline-item {
+        flex-direction: column;
     }
     
     .timeline-content:before {
         left: -42px;
+        top: -22px;
     }
     
     .timeline-content:after {
-        left: -28px;
+        transform: rotate(90deg);
+        left: -34px;
+        top: -16px;
+        width: 20px;
+    }
+    
+    .timeline-content {
+        width: 100%;
     }
 }
 
