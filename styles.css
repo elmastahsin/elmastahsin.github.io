@@ -345,14 +345,14 @@ nav .container {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 20px 0 70px; /* Sol tarafta daha fazla alan bırakıldı */
+    padding: 0 20px 0 70px; /* Sol tarafta alan bırakıldı */
 }
 
 /* Dikey çizgi */
 .timeline:before {
     content: '';
     position: absolute;
-    left: 35px; /* Çizgi konumu */
+    left: 27px; /* Daire işaretçilerine değecek şekilde ayarlandı */
     top: 0;
     bottom: 0;
     width: 3px;
@@ -366,6 +366,10 @@ nav .container {
     margin-bottom: 60px;
     display: flex;
     align-items: flex-start;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
 }
 
 /* İçerik kutusu */
@@ -398,23 +402,24 @@ nav .container {
     background-color: white;
     border: 3px solid var(--primary-color);
     border-radius: 50%;
-    left: -43px; /* Daire konumu */
+    left: -35px;
     top: 25px;
     z-index: 2;
+    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1); /* Hafif mavi gölge */
 }
 
 /* Yatay bağlantı çizgisi */
 .timeline-content:after {
     content: '';
     position: absolute;
-    width: 25px; /* Çizgi uzunluğu */
+    width: 22px;
     height: 2px;
     background-color: var(--primary-color);
-    left: -32px;
+    left: -24px;
     top: 33px;
 }
 
-/* Tarih stili - pozisyon başlığının yanında */
+/* Tarih stili */
 .timeline-date {
     font-size: 0.9rem;
     color: var(--light-text);
@@ -443,25 +448,18 @@ nav .container {
     position: relative;
 }
 
-/* Tablet ve mobil görünüm için */
+/* Tablet ve mobil görünüm düzenlemeleri */
 @media (max-width: 768px) {
+    /* Timeline yapısı */
     .timeline {
         padding-left: 50px;
     }
     
     .timeline:before {
-        left: 25px;
+        left: 17px;
     }
     
-    .timeline-content:before {
-        left: -35px;
-    }
-    
-    .timeline-content:after {
-        left: -25px;
-    }
-    
-    /* Mobilde başlık ve tarih düzeni */
+    /* İçerik düzeni */
     .timeline-content h3 {
         flex-direction: column;
         align-items: flex-start;
@@ -469,10 +467,50 @@ nav .container {
     }
     
     .timeline-date {
-        font-size: 0.85rem;
         margin-left: 0;
+        font-size: 0.85rem;
+    }
+    
+    /* Daire ve çizgi konumları */
+    .timeline-content:before {
+        left: -35px;
+        top: 25px;
+    }
+    
+    .timeline-content:after {
+        left: -24px;
+        top: 33px;
+        width: 18px;
     }
 }
+
+/* Daha küçük ekranlar için özel ayarlar */
+@media (max-width: 576px) {
+    .timeline {
+        padding-left: 45px;
+    }
+    
+    .timeline:before {
+        left: 15px;
+    }
+    
+    .timeline-content:before {
+        left: -30px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    .timeline-content:after {
+        left: -20px;
+        width: 16px;
+    }
+    
+    .timeline-content {
+        padding: 20px;
+    }
+}
+
+/*=====  Son: Timeline & Eğitim  ======*/
 /*=============================================
 =            7. EĞİTİM BÖLÜMÜ                =
 =============================================*/
