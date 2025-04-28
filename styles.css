@@ -331,7 +331,6 @@ nav .container {
 }
 
 /*=====  Son: Hero & About Bölümü  ======*/
-
 /*=============================================
 =            6. TIMELINE & EXPERİENCE        =
 =============================================*/
@@ -341,47 +340,32 @@ nav .container {
     padding: 80px 0;
 }
 
-/* Tamamen yeni timeline yapısı */
+/* Timeline temel yapısı */
 .timeline {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 20px 0 120px; /* Sol padding azaltıldı */
+    padding: 0 20px 0 70px; /* Sol tarafta daha fazla alan bırakıldı */
 }
 
+/* Dikey çizgi */
 .timeline:before {
     content: '';
     position: absolute;
-    left: 95px; /* Çizginin pozisyonu düzeltildi */
+    left: 35px; /* Çizgi konumu */
     top: 0;
     bottom: 0;
     width: 3px;
     background: var(--primary-color);
+    z-index: 1;
 }
 
+/* Her bir timeline öğesi */
 .timeline-item {
     position: relative;
-    margin-bottom: 70px;
-    display: flex; /* Flex yapıya geçildi */
+    margin-bottom: 60px;
+    display: flex;
     align-items: flex-start;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-/* Tarih kutusu - tamamen yenilendi */
-.timeline-date {
-    position: absolute;
-    left: -100px; /* Tarih konumu düzeltildi */
-    top: 8px;
-    width: 80px; /* Genişlik azaltıldı */
-    text-align: right;
-    color: var(--primary-color);
-    font-size: 14px;
-    font-weight: 500;
-    padding-right: 15px;
-    white-space: nowrap; /* Metin taşmayı önler */
 }
 
 /* İçerik kutusu */
@@ -395,6 +379,16 @@ nav .container {
     position: relative;
 }
 
+/* Başlık ve tarih düzeni */
+.timeline-content h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
 /* Daire işaretçisi */
 .timeline-content:before {
     content: '';
@@ -404,29 +398,32 @@ nav .container {
     background-color: white;
     border: 3px solid var(--primary-color);
     border-radius: 50%;
-    left: -32px;
-    top: 23px;
-    z-index: 1;
-    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
+    left: -43px; /* Daire konumu */
+    top: 25px;
+    z-index: 2;
 }
 
 /* Yatay bağlantı çizgisi */
 .timeline-content:after {
     content: '';
     position: absolute;
-    width: 22px;
-    height: 3px;
+    width: 25px; /* Çizgi uzunluğu */
+    height: 2px;
     background-color: var(--primary-color);
-    left: -22px;
-    top: 31px;
+    left: -32px;
+    top: 33px;
 }
 
-.timeline-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 8px;
-    font-size: 1.2rem;
+/* Tarih stili - pozisyon başlığının yanında */
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    font-weight: normal;
+    white-space: nowrap;
+    margin-left: 10px;
 }
 
+/* Alt başlık stili */
 .timeline-content h4 {
     color: var(--light-text);
     font-weight: normal;
@@ -446,50 +443,36 @@ nav .container {
     position: relative;
 }
 
-/* Tablet ve mobil görünüm - tamamen güncellendi */
+/* Tablet ve mobil görünüm için */
 @media (max-width: 768px) {
     .timeline {
         padding-left: 50px;
     }
     
     .timeline:before {
-        left: 30px;
-    }
-    
-    .timeline-date {
-        position: relative;
-        left: -40px;
-        top: 0;
-        width: auto;
-        text-align: left;
-        padding-bottom: 5px;
-        padding-left: 45px;
-        margin-bottom: 10px;
-        color: var(--light-text);
-    }
-    
-    .timeline-item {
-        flex-direction: column;
+        left: 25px;
     }
     
     .timeline-content:before {
-        left: -42px;
-        top: -22px;
+        left: -35px;
     }
     
     .timeline-content:after {
-        transform: rotate(90deg);
-        left: -34px;
-        top: -16px;
-        width: 20px;
+        left: -25px;
     }
     
-    .timeline-content {
-        width: 100%;
+    /* Mobilde başlık ve tarih düzeni */
+    .timeline-content h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .timeline-date {
+        font-size: 0.85rem;
+        margin-left: 0;
     }
 }
-
-
 /*=============================================
 =            7. EĞİTİM BÖLÜMÜ                =
 =============================================*/
