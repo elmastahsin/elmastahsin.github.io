@@ -347,32 +347,33 @@ nav .container {
     background-color: var(--section-bg);
     padding: 80px 0;
 }
-
 /* Timeline temel yapısı */
 .timeline {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 20px 0 70px; /* Sol tarafta dikey çizgi için alan */
+    padding: 0 20px 0 70px;
+    /* Sol tarafta alan bırakıldı */
 }
 
-/* Ana dikey çizgi - solda konumlandırma */
+/* Dikey çizgi - solda konumlandırma */
 .timeline:before {
     content: '';
     position: absolute;
-    left: 65px; /* Sol tarafta dikey çizgi */
+    left: 27px;
+    /* Çemberlerin tam ortasından geçecek şekilde */
     top: 0;
     bottom: 0;
     width: 3px;
     background: var(--primary-color);
     z-index: 0;
+    /* Çizgi çemberlerin arkasında kalacak */
 }
 
 /* Her bir timeline öğesi */
 .timeline-item {
     position: relative;
     margin-bottom: 60px;
-    padding-left: 50px; /* Sol tarafta dikey çizgi için alan */
 }
 
 .timeline-item:last-child {
@@ -385,43 +386,16 @@ nav .container {
     padding: 25px 30px;
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid var(--primary-color); /* Sol kenarda şerit */
+    border-left: 4px solid var(--primary-color);
     position: relative;
+    margin-left: 25px; /* İçeriği biraz daha sağa kaydırdık */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-left: 60px; /* Daire ve çizgiden sonra boşluk */
 }
 
 /* Hover efekti */
 .timeline-content:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(30, 136, 229, 0.15);
-}
-
-/* Daire (O) - Sağda */
-.timeline-item:before {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background-color: white;
-    border: 3px solid var(--primary-color);
-    border-radius: 50%;
-    left: 70px; /* Dikey çizginin sağında */
-    top: 22px;
-    z-index: 2;
-    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
-}
-
-/* Yatay çizgi - Dikey çizgiden sağa uzanan */
-.timeline-item:after {
-    content: '';
-    position: absolute;
-    width: 25px; /* Dikey çizgiden daireye */
-    height: 3px;
-    background-color: var(--primary-color);
-    left: 45px; /* Dikey çizginin sağından başlayıp */
-    top: 33px;
-    z-index: 1;
 }
 
 /* Başlık ve tarih düzeni */
@@ -434,12 +408,49 @@ nav .container {
     font-size: 1.2rem;
 }
 
-/* Tarih/firma stili */
+/* Daire işaretçisi - O şekli */
+.timeline-content:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    left: -45px; /* Tam dikey çizgiye hizalı */
+    top: 25px;
+    z-index: 1;
+    /* Çizginin üstünde görünecek */
+    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
+}
+
+/* Yatay bağlantı çizgisi - | şekli */
+.timeline-content:after {
+    content: '';
+    position: absolute;
+    width: 30px; /* Yatay çizginin uzunluğunu artırdık */
+    height: 3px;
+    background-color: var(--primary-color);
+    left: -30px; /* Çemberden içeriğe doğru */
+    top: 33px;
+    z-index: 0;
+}
+
+/* Tarih stili */
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    font-weight: normal;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+/* Alt başlık stili */
 .timeline-content h4 {
     color: var(--light-text);
-    font-weight: 400;
-    font-size: 0.95rem;
+    font-weight: normal;
     margin-bottom: 15px;
+    font-size: 0.95rem;
 }
 
 /* Listeleri düzenle */
@@ -455,70 +466,70 @@ nav .container {
 
 /* Tablet ve mobil görünüm düzenlemeleri */
 @media (max-width: 768px) {
+    .hero-content {
+        border-right: none;
+        border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+    }
+
     .timeline {
-        padding-left: 60px;
+        padding-left: 50px;
     }
-    
+
     .timeline:before {
-        left: 25px;
+        left: 21px;
+        /* Mobil görünümde çizginin konumu */
     }
 
-    .timeline-item {
-        padding-left: 40px;
+    .timeline-content:before {
+        left: -38px;
+        width: 18px;
+        height: 18px;
     }
 
-    .timeline-item:before {
+    .timeline-content:after {
+        left: -20px;
+        /* Mobil görünümde yatay çizgi */
         width: 20px;
-        height: 20px;
-        left: 55px;
-        top: 24px;
-    }
-
-    .timeline-item:after {
-        width: 20px;
-        left: 35px;
+        top: 33px;
+        transform: none;
+        /* Orijinal transform'u kaldırıyoruz */
     }
     
     .timeline-content {
-        margin-left: 50px;
+        margin-left: 20px;
     }
 }
 
 /* Daha küçük ekranlar için özel ayarlar */
 @media (max-width: 576px) {
     .timeline {
-        padding-left: 50px;
+        padding-left: 40px;
     }
-    
+
     .timeline:before {
-        left: 20px;
+        left: 18px;
     }
 
-    .timeline-item {
-        padding-left: 30px;
-    }
-
-    .timeline-item:before {
+    /* Çember (marker) */
+    .timeline-content:before {
         width: 16px;
         height: 16px;
-        left: 45px;
-        top: 25px;
+        left: -34px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
-    .timeline-item:after {
+    /* Çizgi ile çemberi bağlayan yatay kısa çizgi */
+    .timeline-content:after {
         width: 15px;
-        left: 30px;
+        left: -18px;
+        top: 35px;
     }
     
     .timeline-content {
-        margin-left: 40px;
-        padding: 20px 25px;
+        margin-left: 15px;
     }
 }
-
-
-
-
 
 
 /*=====  Son: Timeline & Experience  ======*/
