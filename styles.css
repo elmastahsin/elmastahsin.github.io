@@ -348,11 +348,11 @@ nav .container {
     padding: 0 20px 0 70px; /* Sol tarafta alan bırakıldı */
 }
 
-/* Dikey çizgi */
+/* Dikey çizgi - ortadan geçen ana çizgi */
 .timeline:before {
     content: '';
     position: absolute;
-    left: 27px; /* Daire işaretçilerine değecek şekilde ayarlandı */
+    left: 27px; /* Daire işaretçilerine değecek şekilde */
     top: 0;
     bottom: 0;
     width: 3px;
@@ -364,8 +364,6 @@ nav .container {
 .timeline-item {
     position: relative;
     margin-bottom: 60px;
-    display: flex;
-    align-items: flex-start;
 }
 
 .timeline-item:last-child {
@@ -374,13 +372,13 @@ nav .container {
 
 /* İçerik kutusu */
 .timeline-content {
-    flex: 1;
     background-color: white;
     padding: 25px 30px;
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
     border-left: 4px solid var(--primary-color);
     position: relative;
+    margin-left: 10px;
 }
 
 /* Başlık ve tarih düzeni */
@@ -402,7 +400,7 @@ nav .container {
     background-color: white;
     border: 3px solid var(--primary-color);
     border-radius: 50%;
-    left: -35px;
+    left: -43px; /* Daire konumu */
     top: 25px;
     z-index: 2;
     box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1); /* Hafif mavi gölge */
@@ -415,7 +413,7 @@ nav .container {
     width: 22px;
     height: 2px;
     background-color: var(--primary-color);
-    left: -24px;
+    left: -32px;
     top: 33px;
 }
 
@@ -445,7 +443,6 @@ nav .container {
 
 .timeline-content li {
     margin-bottom: 10px;
-    position: relative;
 }
 
 /* Tablet ve mobil görünüm düzenlemeleri */
@@ -487,7 +484,7 @@ nav .container {
 /* Daha küçük ekranlar için özel ayarlar */
 @media (max-width: 576px) {
     .timeline {
-        padding-left: 45px;
+        padding-left: 40px;
     }
     
     .timeline:before {
@@ -495,20 +492,22 @@ nav .container {
     }
     
     .timeline-content:before {
-        left: -30px;
-        width: 14px;
-        height: 14px;
+        left: -27px;
+        width: 12px;
+        height: 12px;
     }
     
     .timeline-content:after {
-        left: -20px;
-        width: 16px;
+        left: -19px;
+        width: 14px;
     }
     
     .timeline-content {
-        padding: 20px;
+        padding: 18px;
     }
 }
+
+/*=====  Son: Timeline & Experience  ======*/
 
 /*=====  Son: Timeline & Eğitim  ======*/
 /*=============================================
@@ -593,7 +592,54 @@ nav .container {
 /*=============================================
 =            8. YETENEKLER BÖLÜMÜ           =
 =============================================*/
-
+<!-- Add this CSS to your stylesheet -->
+<style>
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+.skill-category {
+  border-radius: 10px;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+.skill-heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+.skill-items {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f9f9f9;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+.skill-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+@media (max-width: 600px) {
+  .skill-logo {
+    width: 18px;
+    height: 18px;
+  }
+}
 .skills {
     background-color: var(--section-bg);
     padding: 80px 0;
